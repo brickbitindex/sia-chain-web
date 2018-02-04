@@ -1,0 +1,68 @@
+#logo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 99;
+  width: 60px;
+  height: 60px;
+
+  &.loading {
+    &.s0 {
+      #logo1 {
+        fill: #6E4195;
+      }
+      #logo2 {
+        fill: #EAE4F0;
+      }
+      #logo3 {
+        fill: #EAE4F0;
+      }
+    }
+    &.s1 {
+      #logo1 {
+        fill: #EAE4F0;
+      }
+      #logo2 {
+        fill: #6E4195;
+      }
+      #logo3 {
+        fill: #EAE4F0;
+      }
+    }
+    &.s2 {
+      #logo1 {
+        fill: #EAE4F0;
+      }
+      #logo2 {
+        fill: #EAE4F0;
+      }
+      #logo3 {
+        fill: #6E4195;
+      }
+    }
+  }
+
+  &.soft {
+    transition: all ease 0.5s;
+
+    & > * {
+      transition: all ease 0.5s;
+    }
+  }
+
+  &.home {
+    width: 100px;
+    height: 100px;
+
+    #logo1 {
+      fill: rgba(255, 255, 255, 0.6);
+    }
+    #logo2 {
+      fill: #fff;
+    }
+    #logo3 {
+      fill: rgba(255, 255, 255, 0.6);
+    }
+  }
+}

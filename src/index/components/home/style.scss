@@ -1,0 +1,21 @@
+#home {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding-top: 45vh;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to bottom right, #8C4197 , #E265A8);
+
+  h1 {
+    font-weight: lighter;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+}
