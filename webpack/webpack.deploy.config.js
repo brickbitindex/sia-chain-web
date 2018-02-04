@@ -87,6 +87,10 @@ var config = {
         test: /\.json$/,
         loader: 'json-loader'
       },
+      {
+        test: /\.html$/,
+        loader: 'html?attrs[]=img:src',
+      }
     ]
   },
   resolve: {
@@ -97,16 +101,6 @@ var config = {
     lodash: "_",
     jquery: "jQuery",
   },
-  reactx: {
-    // loaders for each langs
-    loaders: {
-      js: 'babel',
-      coffee: 'babel!coffee',
-      sass: 'style-loader!css-loader!autoprefixer?{browsers:["last 2 version", "> 1%"]}!sass'
-    },
-    // whether use source map
-    sourceMap: true
-  }
 };
 
 module.exports = config;
