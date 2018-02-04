@@ -198,3 +198,127 @@ $color6: #c6d567;
     top: 53vh;
   }
 }
+
+.cpage.p3 {
+  display: flex;
+  flex-wrap: wrap;
+
+  .title,
+  .color-text,
+  .tag::before {
+    color: $color3;
+  }
+
+  .member-container {
+    position: relative;
+    width: 50%;
+  }
+
+  .member {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 20vw;
+
+    img {
+      width: 100%;
+    }
+
+    .color-text,
+    .inner-text div {
+      position: absolute;
+      left: -30px;
+      top: -30px;
+      font-size: 6rem;
+    }
+
+    .inner-text {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      height: 20vw;
+    }
+  }
+}
+
+.cpage.p4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > * {
+    position: relative;
+  }
+
+  .title,
+  .color-text,
+  .tag::before {
+    color: $color4;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+.cpage.p5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > * {
+    position: relative;
+  }
+
+  .title,
+  .color-text,
+  .tag::before {
+    color: $color5;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form {
+    text-align: center;
+
+    input {
+      display: block;
+      box-sizing: border-box;
+      border: solid 3px $color5;
+      width: 100%;
+      outline: none;
+      font-size: 2rem;
+      padding: 10px;
+      color: $color5;
+    }
+
+    button {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      border: solid 3px $color5;
+      outline: none;
+      background-color: $color5;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      transition: color ease 0.3s;
+      transition: background-color ease 0.3s;
+      margin-top: 1rem;
+
+      &:hover {
+        background-color: #fff;
+        color: $color5;
+      }
+    }
+
+    .right {
+      margin-top: 3rem;
+    }
+  }
+}

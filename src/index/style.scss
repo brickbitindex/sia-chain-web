@@ -76,12 +76,39 @@ body {
   }
 }
 
+#borderLogo {
+  fill: #fff;
+  transition: fill ease 0.5s;
+
+  &[data-p="1"] {
+    fill: $color1;
+  }
+  &[data-p="2"] {
+    fill: $color2;
+  }
+  &[data-p="3"] {
+    fill: $color3;
+  }
+  &[data-p="4"] {
+    fill: $color4;
+  }
+  &[data-p="5"] {
+    fill: $color5;
+  }
+  &[data-p="6"] {
+    fill: $color6;
+  }
+}
+
 #border {
   height: 100%;
   width: 100%;
   border: solid 1px #fff;
   border-radius: 4px;
   transition: border-color ease 0.5s;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: right;
 }
 
 #nav {

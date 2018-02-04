@@ -3,13 +3,16 @@
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding-top: 45vh;
+  padding-top: 50vh;
   text-align: center;
   color: #fff;
   background: linear-gradient(to bottom right, #8C4197 , #E265A8);
 
   h1 {
+    font-family: Intro;
+    opacity: 0.5;
     font-weight: lighter;
+    font-size: 1.5rem;
   }
 
   canvas {

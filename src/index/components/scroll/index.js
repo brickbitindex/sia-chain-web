@@ -10,6 +10,16 @@ class ScrollHandler {
   update() {}
 }
 
+class LogoScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('#borderLogo'));
+  }
+  update(pos) {
+    // active
+    this.$dom.attr('data-p', parseInt(pos + 0.5, 10));
+  }
+}
+
 class BorderScrollHandler extends ScrollHandler {
   constructor() {
     super($('.border-container').first());
@@ -51,6 +61,7 @@ class P1ScrollHandler extends ScrollHandler {
     this.$whitepaper = $('.white-paper', this.$dom).first();
   }
   update(pos) {
+    if (pos > 2) return;
     const p = pos - 1;
     this.$mainPage.css('transform', `translate(${-p * 400}px, 0)`);
     this.$innerText.css('transform', `translate(${-p * 400}px, 0)`);
@@ -70,6 +81,7 @@ class P2ScrollHandler extends ScrollHandler {
     this.$contentSlide = $('.content .slide-container', this.$dom).first();
   }
   update(pos) {
+    if (pos < 1 || pos > 3) return;
     const p = pos - 2;
     this.$contentSlide.css('width', `${(pos - 1) * 100}%`);
     this.$content.css('transform', `translate(0, ${p * 200}px)`);
@@ -78,17 +90,54 @@ class P2ScrollHandler extends ScrollHandler {
   }
 }
 
+class P3ScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('.page.p3').first());
+    this.$colorText = $('.member .color-text', this.$dom);
+    this.$innerTextDiv = $('.member .inner-text div', this.$dom);
+  }
+  update(pos) {
+    if (pos < 2 || pos > 4) return;
+    const p = pos - 3;
+    if (p > 0) {
+      this.$innerTextDiv.css('transform', 'translate(0, 0)');
+      this.$colorText.css('transform', 'translate(0, 0)');
+    } else {
+      this.$innerTextDiv.css('transform', `translate(0, ${-p * 200}px)`);
+      this.$colorText.css('transform', `translate(0, ${-p * 200}px)`);
+    }
+  }
+}
+
+class P5ScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('.page.p5').first());
+    this.$input = $('.form input', this.$dom).first();
+    this.$btn = $('.form button', this.$dom).first();
+  }
+  update(pos) {
+    if (pos < 4 || pos > 6) return;
+    const p = pos - 5;
+    this.$input.css('transform', `translate(${p * 200}px, 0)`);
+    this.$btn.css('transform', `translate(${-p * 200}px, 0)`);
+  }
+}
+
 export default class Scroll extends Base {
   init() {
     this.handlers = [
+      new LogoScrollHandler(),
       new BorderScrollHandler(),
       new NavScrollHandler(),
       new P1ScrollHandler(),
       new P2ScrollHandler(),
+      new P3ScrollHandler(),
+      new P5ScrollHandler(),
     ];
     window.onscroll = () => {
       this.update(window.pageYOffset);
     };
+    this.update(window.pageYOffset);
   }
 
   update(top) {
