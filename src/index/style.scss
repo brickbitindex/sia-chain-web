@@ -1,0 +1,244 @@
+$color1: #6e4195;
+$color2: #55b25c;
+$color3: #fd8731;
+$color4: #d44489;
+$color5: #55c0ea;
+$color6: #c6d567;
+
+
+html,
+body,
+.page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  // font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif;
+  font-family: "Segoe UI",Arial,sans-serif;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.border-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+  }
+
+  &[data-p="1"] {
+    #border {
+      border-color: $color1;
+    }
+  }
+  &[data-p="2"] {
+    #border {
+      border-color: $color2;
+    }
+  }
+  &[data-p="3"] {
+    #border {
+      border-color: $color3;
+    }
+  }
+  &[data-p="4"] {
+    #border {
+      border-color: $color4;
+    }
+  }
+  &[data-p="5"] {
+    #border {
+      border-color: $color5;
+    }
+  }
+  &[data-p="6"] {
+    #border {
+      border-color: $color6;
+    }
+  }
+}
+
+#border {
+  height: 100%;
+  width: 100%;
+  border: solid 1px #fff;
+  border-radius: 4px;
+  transition: border-color ease 0.5s;
+}
+
+#nav {
+  position: fixed;
+  z-index: 50;
+  top: 50%;
+  height: 26px;
+  direction: rtl;
+  text-align: center;
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity ease 0.5s;
+
+  a {
+    cursor: pointer;
+  }
+
+  &.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &[data-p="1"] {
+    .nav-1 {
+      background: $color1;
+      color: #fff;
+    }
+  }
+
+  &[data-p="2"] {
+    .nav-1 {
+      color: $color2;
+    }
+    .nav-2 {
+      background: $color2;
+      color: #fff;
+    }
+  }
+
+  &[data-p="3"] {
+    .nav-1 {
+      color: $color3;
+    }
+    .nav-2 {
+      color: $color3;
+    }
+    .nav-3 {
+      background: $color3;
+      color: #fff;
+    }
+  }
+
+  &[data-p="4"] {
+    .nav-1 {
+      color: $color4;
+    }
+    .nav-2 {
+      color: $color4;
+    }
+    .nav-3 {
+      color: $color4;
+    }
+    .nav-4 {
+      background: $color4;
+      color: #fff;
+    }
+  }
+
+  &[data-p="5"] {
+    .nav-1 {
+      color: $color5;
+    }
+    .nav-2 {
+      color: $color5;
+    }
+    .nav-3 {
+      color: $color5;
+    }
+    .nav-4 {
+      color: $color5;
+    }
+    .nav-5 {
+      background: $color5;
+      color: #fff;
+    }
+  }
+
+  &[data-p="6"] {
+    .nav-1 {
+      color: $color6;
+    }
+    .nav-2 {
+      color: $color6;
+    }
+    .nav-3 {
+      color: $color6;
+    }
+    .nav-4 {
+      color: $color6;
+    }
+    .nav-5 {
+      color: $color6;
+    }
+    .nav-6 {
+      background: $color6;
+      color: #fff;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+      transition: all ease 0.15s;
+      color: #dfe5e8;
+
+      a {
+        text-transform: uppercase;
+        font-size: .8rem;
+        line-height: 26px;
+        height: 24px;
+        display: block;
+        font-family: Intro;
+        text-decoration: none;
+        padding: 0 7px;
+        transition: all .15s linear;
+      }
+    }
+  }
+}
+
+@font-face {
+  font-family: Intro;
+  src: url(../assets/font/Intro.eot);
+  src: url(../assets/font/Intro.eot?#iefix) format("embedded-opentype"), url(../assets/font/Intro.woff2) format("woff2"),url(../assets/font/Intro.woff) format("woff"),url(../assets/font/Intro.ttf) format("truetype"),url(../assets/font/Intro.svg#Intro) format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family:'Segoe UI';
+//   src: url(../fonts/segoeui/SegoeUI.eot);
+//   src: url(../fonts/segoeui/SegoeUI.eot?#iefix) format("embedded-opentype"),url(../fonts/segoeui/SegoeUI.woff2) format("woff2"),url(../fonts/segoeui/SegoeUI.woff) format("woff"),url(../fonts/segoeui/SegoeUI.ttf) format("truetype"),url(../fonts/segoeui/SegoeUI.svg#SegoeUI) format("svg");
+//   font-weight: 400;
+//   font-style: normal
+// }
+
+// @font-face {
+//   font-family:'Segoe UI';
+//   src: url(../fonts/segoeui/SegoeUI-Bold.eot);
+//   src: url(../fonts/segoeui/SegoeUI-Bold.eot?#iefix) format("embedded-opentype"),url(../fonts/segoeui/SegoeUI-Bold.woff2) format("woff2"),url(../fonts/segoeui/SegoeUI-Bold.woff) format("woff"),url(../fonts/segoeui/SegoeUI-Bold.ttf) format("truetype"),url(../fonts/segoeui/SegoeUI-Bold.svg#SegoeUI-Bold) format("svg");
+//   font-weight: 700;
+//   font-style:normal
+// }

@@ -1,0 +1,101 @@
+import Base from '../base';
+
+const $ = window.$;
+
+class ScrollHandler {
+  constructor($dom) {
+    this.$dom = $dom;
+  }
+
+  update() {}
+}
+
+class BorderScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('.border-container').first());
+  }
+  update(pos) {
+    if (pos > 1) {
+      this.$dom.addClass('fixed');
+    } else {
+      this.$dom.removeClass('fixed');
+    }
+    // active
+    this.$dom.attr('data-p', parseInt(pos + 0.5, 10));
+  }
+}
+
+class NavScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('#nav'));
+  }
+  update(pos) {
+    if (pos > 0.5) {
+      this.$dom.addClass('show');
+    } else {
+      this.$dom.removeClass('show');
+    }
+    // active
+    this.$dom.attr('data-p', parseInt(pos + 0.5, 10));
+  }
+}
+
+class P1ScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('.page.p1').first());
+    this.$colorText = $('.color-text', this.$dom).first();
+    this.$innerText = $('.inner-text', this.$dom).first();
+    this.$innerTextDiv = $('.inner-text div', this.$dom).first();
+    this.$mainPage = $('.main-page', this.$dom).first();
+    this.$content = $('.content', this.$dom).first();
+    this.$whitepaper = $('.white-paper', this.$dom).first();
+  }
+  update(pos) {
+    const p = pos - 1;
+    this.$mainPage.css('transform', `translate(${-p * 400}px, 0)`);
+    this.$innerText.css('transform', `translate(${-p * 400}px, 0)`);
+    this.$innerTextDiv.css('transform', `translate(${p * 400}px, ${-p * 400}px)`);
+    this.$colorText.css('transform', `translate(0, ${-p * 400}px)`);
+    this.$content.css('opacity', `${pos}`);
+    this.$whitepaper.css('width', `${pos * 190}px`);
+  }
+}
+
+class P2ScrollHandler extends ScrollHandler {
+  constructor() {
+    super($('.page.p2').first());
+    this.$colorText = $('.color-text', this.$dom).first();
+    this.$innerTextDiv = $('.inner-text div', this.$dom).first();
+    this.$content = $('.content', this.$dom).first();
+    this.$contentSlide = $('.content .slide-container', this.$dom).first();
+  }
+  update(pos) {
+    const p = pos - 2;
+    this.$contentSlide.css('width', `${(pos - 1) * 100}%`);
+    this.$content.css('transform', `translate(0, ${p * 200}px)`);
+    this.$innerTextDiv.css('transform', `translate(0, ${-p * 400}px)`);
+    this.$colorText.css('transform', `translate(0, ${-p * 400}px)`);
+  }
+}
+
+export default class Scroll extends Base {
+  init() {
+    this.handlers = [
+      new BorderScrollHandler(),
+      new NavScrollHandler(),
+      new P1ScrollHandler(),
+      new P2ScrollHandler(),
+    ];
+    window.onscroll = () => {
+      this.update(window.pageYOffset);
+    };
+  }
+
+  update(top) {
+    const wh = window.innerHeight;
+    const pos = top / wh;
+    for (let i = 0; i < this.handlers.length; i += 1) {
+      this.handlers[i].update(pos);
+    }
+  }
+}
